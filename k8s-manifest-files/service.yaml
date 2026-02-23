@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  namespace: splash-ns
+  name: veg-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: veg
+  ports:
+    - port: 80
+      targetPort: 3000
+      nodePort: 30303

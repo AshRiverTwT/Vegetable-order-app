@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+  namespace: splash-ns
+  name: veg-config
+data: 
+  APP_NAME: "Vegetable order"
