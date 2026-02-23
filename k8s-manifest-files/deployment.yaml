@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
-  namespace: splash-ns
+metadata:
   name: veg-app
+  namespace: splash-ns
 spec:
   replicas: 2
   selector:
     matchLabels:
       app: veg
-  template: 
+  template:
     metadata:
       labels:
         app: veg
@@ -16,5 +16,9 @@ spec:
       containers:
         - name: veg-container
           image: kalyantwt/veg-app:v1
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
+          env:
+            - name: MONGO_URL
+              value: mongodb://mongodb:27017/vegdb
